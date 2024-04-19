@@ -1,3 +1,4 @@
+<?php require "../partials/_dbConnect.php";?>
 <body>
     <div class="table-container">
        <div class="table-content">

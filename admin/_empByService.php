@@ -1,4 +1,5 @@
 <?php 
+require "../partials/_dbConnect.php";
 $sql=$conn->prepare("SELECT * FROM `categories`,`category_employee`,`employee`,`admin` 
                             WHERE `categories`.`cate_id`=`category_employee`.`category_id` 
                             AND `employee`.`emp_id`=`category_employee`.`employee_id` 

@@ -1,5 +1,5 @@
 <?php 
-// require "../partials/_dbConnect.php";
+require "../partials/_dbConnect.php";
 $sql=$conn->prepare("SELECT * FROM `categories`,`admin` WHERE `admin`.`admin_id`=`categories`.`cate_admin_id`");
 $sql->execute();
 $result=$sql->get_result();
@@ -49,7 +49,7 @@ $result=$sql->get_result();
             <div class="form-box">
                 <div class="form-heading">
                     <h2 class="heading">Update Category</h2>
-                    <img src="../img/icons/close.png" id="close-img" style="position:relative;left:25%;">
+                    <img src="../img/icons/close.png" id="close-img" style="position:relative;left:18%;">
                 </div>
                 <form id="add-category-form" autocomplete="off">
                     <div class="form-element">

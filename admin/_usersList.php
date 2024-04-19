@@ -1,4 +1,5 @@
 <?php 
+require "../partials/_dbConnect.php";
 $sql=$conn->prepare("SELECT * FROM `user`");
 $sql->execute();
 $result=$sql->get_result();

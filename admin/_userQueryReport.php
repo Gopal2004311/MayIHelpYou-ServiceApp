@@ -1,4 +1,5 @@
 <?php 
+require "../partials/_dbConnect.php";
 $sql=$conn->prepare("SELECT * FROM `user`,`contact`
                               WHERE `user`.`user_id`=`contact`.`con_user_id`");
 $sql->execute();
@@ -48,7 +49,7 @@ $result=$sql->get_result();
         <div class="form-box">
             <div class="form-heading">
                 <h1 class="heading" style="text-align:center;">E-Mail Service</h1>
-                <img src="../img/icons/close.png" id="close-img" class="close-img" style="position:relative;top:-1rem;left:12rem;">
+                <img src="../img/icons/close.png" id="close-img" class="close-img" style="position:relative;top:-2rem;left:17%;">
             </div>
             <form id="mail-form">
                 <div class="form-element">

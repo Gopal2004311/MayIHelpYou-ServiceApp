@@ -1,3 +1,4 @@
+<?php require "../partials/_dbConnect.php";?>
 <body>
     <div class="add-service-container form-container" id="add-service">
         <div class="service-box">

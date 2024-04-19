@@ -2,9 +2,9 @@
 session_start();
 include_once "./partials/_dbConnect.php";
 include_once "./partials/_regularExp.php";
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['userEmail'])) {
-    header("location:_userLogin.php");
-}
+// if (!isset($_SESSION['user_id']) && !isset($_SESSION['userEmail'])) {
+//     header("location:_userLogin.php");
+// }
 
 if (isset($_POST['save_name'])) {
     $name = $_POST['user-name'];
@@ -112,7 +112,7 @@ if (isset($_POST['save_number'])) {
                     <div class="order lg-pad-b dash-info">
                         <div class="dash-box">
                             <img src="img/icons/order-icon.png" alt="order-icon" class="dashboard-icon">
-                            <div> <a id="myOrder">My Orders</a></div>
+                            <div> <a id="myOrder" href="_userDashboard.php?order=1">My Orders</a></div>
                         </div>
                     </div>
                     <div class="user-account lg-pad-b dash-info">
@@ -168,7 +168,14 @@ if (isset($_POST['save_number'])) {
         <div class="user-content">
 
             <div class="user-container shadow op-padding" id="user-container">
-                <?php include_once "userDashboard/_manageProfile.php";?>
+                <?php 
+                if(isset($_GET['order']))
+                {
+                    require "./userDashboard/_userOrders.php";
+                }else
+                {
+                    require "./userDashboard/_manageProfile.php";
+                }?>
             </div>
         </div>
     </div>

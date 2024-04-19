@@ -1,5 +1,5 @@
 <?php 
-    // require "../partials/_dbConnect.php";
+    require "../partials/_dbConnect.php";
     $sql=$conn->prepare("SELECT 
                             `customer_name`,
                             `customer_email`,
@@ -108,9 +108,9 @@
     </div>
     <div class="pad-x form-container received-order-container" id="mail-container">
         <div class="form-box">
-            <div class="form-heading d-flex" style="gap:75%;">
-                <h1 class="heading" style="margin:0 -2rem 0 2rem;padding:0 2rem 0 0;">E-Mail Service</h1>
-                <img src="../img/icons/close.png" id="close-img">
+            <div class="form-heading d-flex">
+                <h1 class="heading" style="text-align:center;">E-Mail Service</h1>
+                <img src="../img/icons/close.png" id="close-img" style="position: relative;left:20%;top:-3rem;">
             </div>
             <form id="mail-form">
                 <div class="form-element">

@@ -1627,13 +1627,97 @@ Service Order page End  Here (_serviceOrder.php)
     background-color: var(--orange);
     color: white;
 }
-
 /* #payment .grid-container .payment-form {
     margin: 0 auto;
 } */
 
 /* --------- Payment Page End ---------  */
 
+/*----------- User order Section Start here--------*/
+.user-order-container{
+    width: 100%;
+    height: auto;
+    padding: .5rem;
+}
+
+.user-order-container .content-box{
+    margin: 0 0 1rem 0;
+}
+
+.user-order-container .content-box .head{
+    width: 100%;
+    padding: 1rem;
+}
+
+.user-order-container .content-box .head .heading{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-order-container .content-box .order-details p{
+    font-size: 2rem;
+}
+
+.user-order-container .content-box .order-details .content{
+    margin: 1rem 0 1rem 0;
+}
+.user-order-container .content-box .order-details .content .order-label span{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.user-order-container .content-box .order-details .content .order-label span,.order-data span{
+    display: block;
+    margin: .5rem 0 .5rem 0;
+    font-size: 1.8rem;
+    color: var(--gray-dark);
+}
+.user-order-container .content-box .order-details .content .order-data{
+    margin-left: 2rem;
+}
+
+.user-order-container .content-box .order-details .data{
+    position: relative;
+    display: flex;
+    left: 70%;
+    gap: 4rem;
+    bottom: 2rem;
+    top: -5.5rem;
+    width: fit-content;
+}
+
+.user-order-container .content-box .order-details .data a{
+    height: 4.6rem;
+    width: 9rem;
+    padding-top: 1rem;
+    border: 2px solid var(--blue);
+    border-radius: 4px;
+    background-color: var(--blue);
+    color: var(--light);
+    font-size: 1.8rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+}
+
+.user-order-container .content-box .order-details .data a:hover{
+    background-color: var(--light);
+    color: var(--blue);
+}
+
+.user-order-container .content-box .order-details .data .cancel-btn{
+    background-color: var(--red);
+    color: var(--light);
+    border: 2px solid var(--red);
+}
+
+.user-order-container .content-box .order-details .data .cancel-btn:hover{
+    background-color: var(--light);
+    color: var(--red);
+}
 /* Footer section start here */
 footer {
     /* position: fixed;

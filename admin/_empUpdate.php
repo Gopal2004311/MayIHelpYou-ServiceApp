@@ -1,4 +1,5 @@
 <?php
+require "../partials/_dbConnect.php";
 $sql = $conn->prepare("SELECT * FROM `categories`");
 $sql->execute();
 $res = $sql->get_result();
@@ -20,6 +21,7 @@ $result = $sql->get_result();
                     <h2 class="heading">Employee Update</h2>
                 </div>
                 <form id="emp-update-form" autocomplete="off">
+                <div class="form-input-group">
                     <div class="form-element">
                         <input type="hidden" class="form-input" name="emp_id" id="empId">
                         <label class="form-label" for="empName">Name</label>
@@ -29,6 +31,8 @@ $result = $sql->get_result();
                         <label class="form-label" for="empEmail">Email</label>
                         <input class="form-input" type="email" name="empEmail" id="empEmail" placeholder="Employee Email" required/>
                     </div>
+                </div>
+                <div class="form-input-group">
                     <div class="form-element">
                         <label class="form-label" for="mobile">Mobile No.</label>
                         <input class="form-input" type="number" name="mobile" id="mobile" placeholder="Employee Mobile no." required/>
@@ -37,7 +41,8 @@ $result = $sql->get_result();
                         <label class="form-label" for="empAddress">Address</label>
                         <input class="form-input" type="text" name="empAddress" id="empAddress" placeholder="Employee Address" required/>
                     </div>
-                    <div class="form-input-group">
+                </div>
+                <div class="form-input-group">
                          <div class="form-element">
                             <label class="form-label" for="empAge">Age</label>
                             <input class="form-input" type="number" name="empAge" id="empAge" placeholder="Employee Age" required/>
@@ -147,9 +152,9 @@ $result = $sql->get_result();
                                     <td>$row[emp_age]</td>
                                     <td>$row[adhar_card_no]</td>
                                     <td>$row[pan_card_no]</td>
-                                    <td><img src='$row[profile_picture]' class='profile-img' data-item='$row[emp_id]' alt='$row[emp_name]' height='50px'/></td>
-                                    <td><img src='$row[adhar_image]' class='adhar-img' alt='adhar image' data-item='$v1' height='50px'/></td>
-                                    <td><img src='$row[pan_card_image]' class='pan-img' alt='Pan card' data-item='$v2' height='50px'/></td>
+                                    <td><img src='$row[profile_picture]' class='profile-img' alt='$row[emp_name]' height='50px'/></td>
+                                    <td><img src='$row[adhar_image]' class='adhar-img' alt='adhar image' height='50px'/></td>
+                                    <td><img src='$row[pan_card_image]' class='pan-img' alt='Pan card'height='50px'/></td>
                                     <td style=" . "display:none;" . ">$row[emp_id]</td>
                                     <td class=" . "empId" . "><button>click</button></td>
                                 </tr>";

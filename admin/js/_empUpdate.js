@@ -273,7 +273,7 @@ assignNowBtn.addEventListener("click",(e)=>{
 //sending data to submittingFormData.php file to remove all record from category_employee having given emp_email
 const assignDeleteBtn=document.getElementById("delete-from-cate-emp");
 assignDeleteBtn.addEventListener("click",(e)=>{
-
+    e.preventDefault();
    let con=confirm("Are you sure to delete all data related to given email");
    if(con)
    {

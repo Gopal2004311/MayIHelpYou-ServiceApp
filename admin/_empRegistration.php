@@ -1,18 +1,19 @@
 <?php
-// require "../partials/_dbConnect.php";
+require "../partials/_dbConnect.php";
 $sql = $conn->prepare("SELECT * FROM `categories`");
 $sql->execute();
 $res = $sql->get_result();
 ?>
 <body>
     <div class="add-service-container form-container container" id="add-service">
-        <div class="service-box">
+        <div class="service-box" id="emp-add">
             <div class="form-box">
                 <div class="form-heading">
                   <img src="../img/icons/adminDark.png" alt="Admin-img" style="margin:-2rem 0 0 0" class="admin-img">
                     <h2 class="heading">Employee Registration</h2>
                 </div>
                 <form id="emp-registration-form" autocomplete="off">
+                <div class="form-input-group">
                     <div class="form-element">
                         <label class="form-label" for="empName">Name</label>
                         <input class="form-input" type="text" name="empName" id="empName" placeholder="Employee Name" required/>
@@ -21,22 +22,27 @@ $res = $sql->get_result();
                         <label class="form-label" for="empEmail">Email</label>
                         <input class="form-input" type="email" name="empEmail" id="empEmail" placeholder="Employee Email" required/>
                     </div>
-                    <div class="form-element">
+                </div>
+                <div class="form-input-group">
+                <div class="form-element">
                         <label class="form-label" for="mobile">Mobile No.</label>
                         <input class="form-input" type="number" name="mobile" id="mobile" placeholder="Employee Mobile no."/>
-                    </div>
-                    <div class="form-element">
-                        <label class="form-label" for="empAddress">Address</label>
-                        <input class="form-input" type="text" name="empAddress" id="empAddress" placeholder="Employee Address"/>
                     </div>
                     <div class="form-element">
                         <label class="form-label" for="empAge">Age</label>
                         <input class="form-input" type="number" name="empAge" id="empAge" placeholder="Employee Age"/>
                     </div>
+                </div>
+                <div class="form-input-group">
+                    <div class="form-element">
+                        <label class="form-label" for="empAddress">Address</label>
+                        <input class="form-input" type="text" name="empAddress" id="empAddress" placeholder="Employee Address"/>
+                    </div>
                     <div class="form-element">
                         <label class="form-label" for="empPassword">Password</label>
                         <input class="form-input" type="text" name="empPassword" id="empPassword" placeholder="Employee Password"/>
                     </div>
+                </div>
                     <div class="form-input-group">
                     <div class="form-element">
                         <label class="form-label" for="empCategory">Category</label>

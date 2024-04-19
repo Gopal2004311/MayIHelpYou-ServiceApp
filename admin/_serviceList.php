@@ -1,5 +1,5 @@
 <?php 
-
+require "../partials/_dbConnect.php";
 $sql=$conn->prepare("SELECT * FROM `services`,`admin`,`categories`
                               WHERE `admin`.`admin_id`=`services`.`service_admin_id`
                                AND  `categories`.`cate_id`=`services`.`service_cate_id`");

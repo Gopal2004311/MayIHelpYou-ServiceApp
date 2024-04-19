@@ -1,3 +1,4 @@
+<?php require "../partials/_dbConnect.php";?>
 <body>
     <div class="add-service-container form-container" id="add-service">
     <button id="display-btn" class="operation-btn" style="margin: -3rem -0.1rem 0 0;float:right;">Service Info</button>

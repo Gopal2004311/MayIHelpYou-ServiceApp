@@ -427,9 +427,13 @@ nav .search i {
     padding-right: 1rem;
 }
 
+nav .search i img {
+    height: 2.5rem;
+}
+
 nav .search input {
     width: 100%;
-    padding: .5rem 0;
+    padding: 1.5rem 0 !important;
     border: none;
     outline: none;
     background: transparent;
@@ -444,7 +448,19 @@ nav .search input {
 nav .navbar-right {
     margin: 1.5rem 0 1.5rem 0;
 }
-nav .navbar-right a{
+
+nav .navbar-right .admin-nav-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav .navbar-right .admin-nav-icons img {
+    height: 2.5rem;
+}
+
+/* nav .navbar-right a{
   height: 3rem;
   width: 4rem;
   border: 2px solid var(--green);
@@ -454,7 +470,7 @@ nav .navbar-right a{
   border-radius: 4px;
   padding: 1rem;
   transition: all .5s ease;
-}
+} */
 
 nav .navbar-right a:hover{
     background-color: var(--light);
@@ -466,8 +482,8 @@ nav .navbar-right a:hover{
 }
 
 .dash-container .heading {
-    font-size: 2.5rem;
-    padding-bottom: 2rem;
+    font-size: 3rem;
+    padding: 2rem;
 }
 
 .dash-container .box-con {
@@ -475,6 +491,7 @@ nav .navbar-right a:hover{
     /* align-items: center; */
     flex-wrap: wrap;
     gap: 1.5rem;
+    margin-bottom: 3rem;
     /* justify-content: center; */
 }
 
@@ -487,6 +504,68 @@ nav .navbar-right a:hover{
     width: 121%;
     position: relative;
     left: -25rem;
+}
+
+
+/* After click admin box show this table */
+
+.dash-container #show table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Table header */
+.dash-container #show th {
+    color: #fff; /* White text color */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.dash-container #show table .thead-4 tr th{
+    background-color: var(--yellow);
+}
+
+.dash-container #show table .thead-1 tr th{
+    background-color: var(--blue);
+}
+
+.dash-container #show table .thead-3 tr th
+{
+    background-color: var(--green);
+}
+
+.dash-container #show table .thead-2 tr th
+{
+    background-color: var(--orange);
+}
+
+/* Table body */
+.dash-container #show td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: var(--dark);
+    background-color: #f8f9fa; /* Light background color for td */
+}
+
+/* Alternate row color */
+.dash-container #show tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect */
+.dash-container #show tr:hover td {
+    background-color: #cce5ff; /* Light blue color on hover */
+}
+
+/* No users found message */
+.dash-container #show .no-users {
+    font-style: italic;
+    color: #999;
 }
 
 .dash-container .box-con .box {
@@ -548,6 +627,30 @@ nav .navbar-right a:hover{
     grid-template-columns: repeat(2, 1fr);
     margin-top: 2rem;
     gap: 1rem;
+}
+
+.dash-content-heading{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#show .head-1{
+    color: var(--blue);
+}
+
+#show .head-2{
+    color: var(--orange);
+}
+
+#show .head-3{
+    color: var(--green);
+}
+
+#show .head-4{
+    color: var(--yellow);
 }
 
 .dash-container .info-con .left {
@@ -906,7 +1009,7 @@ header .head .navbar-section .nav-btn .logout:hover {
 /*receivedOrders.php style start here*/
 .table-container{
     position: absolute;
-    top: 2rem;
+    top: 5rem;
     left: 27rem;
     width: 75%;
     height: auto;
@@ -1073,3 +1176,13 @@ footer .copyright p {
 footer .copyright{
     margin: 0 25rem 0 0;
 }
+
+
+/* Emp Registration page css */
+
+#emp-add .form-box {
+    width: 100%;
+}
+
+/* Custom Table style */
+

@@ -1,7 +1,5 @@
 <?php
 session_start();
-error_reporting(0);
-require "../partials/_dbConnect.php";
 require "../partials/_regularExp.php";
 
 if (!isset($_SESSION['adminEmail']) && !isset($_SESSION['admin_id'])) {
@@ -13,6 +11,7 @@ if (!isset($_SESSION['adminEmail']) && !isset($_SESSION['admin_id'])) {
 <html lang="en">
 
 <head>
+    <a href=></a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>'May I Help You' Dashboard</title>
@@ -45,6 +44,7 @@ if (!isset($_SESSION['adminEmail']) && !isset($_SESSION['admin_id'])) {
                         <li><a href="_adminDashboard.php?user-first=1">Registered users</a></li>
                         <li><a href="_adminDashboard.php?user-second=1">payment</a></li>
                         <li><a href="_adminDashboard.php?user-query=1">User Queries</a></li>
+                        <li><a href="_adminDashboard.php?admin-signup=1">Admin Sign-Up</a></li>
                         <li><a href="#">Notification</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="../partials/_logout.php?admin=1" class="log-out">Log-out</a></li>
@@ -54,15 +54,18 @@ if (!isset($_SESSION['adminEmail']) && !isset($_SESSION['admin_id'])) {
             <div class="dashboard" id="dashboard">
                 <nav>
                     <div class="search">
+                        <i><img src="../img/icons/search-interface-symbol.png" alt=""></i>
                         <input type="search" name="search" id="search" placeholder="Search">
                     </div>
                     <div class="navbar-right">
-                    <?php if($_SESSION['admin_id']=="1" || $_SESSION['admin_id']=="2"):?>
-                       <a href="_adminDashboard.php?admin-signup=1">Sign-Up</a>
-                    <?php endif; ?>
+                        <div class="admin-nav-icons">
+                            <a href="#"><img src="../img/icons/envelope-solid.png" alt=""></a> 
+                            <a href="#"><img src="../img/icons/gear-solid.png" alt=""></a> 
+                        </div>
                     </div>
                 </nav>
                 <div class="dash-container" id="dash-content">
+
                       <?php
 if (isset($_GET['admin']) && $_GET['admin'] == 1) {
     require "_adminProfile.php";
@@ -102,6 +105,7 @@ if (isset($_GET['admin']) && $_GET['admin'] == 1) {
             </div>
         </div>
     </main>
+
 </body>
 
 </html>

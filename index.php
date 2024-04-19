@@ -160,7 +160,7 @@ if (isset($_POST['contact_form'])) {
                                         ?>
                                            <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="_userDashboard.php?sid='<?php $row["service_id"];?>">
+                                                    <a href="_userDashboard.php?sid=<?php echo $row["service_id"];?>">
                                                         <img src="<?php echo $row["image_path"]; ?>" alt="">
                                                     </a>
                                                 </div>
@@ -169,7 +169,7 @@ if (isset($_POST['contact_form'])) {
                                                 </div>
                                             </div>
                                         <?php
-                                    }
+                                   }
                                 }
                             } else {
                                 // Query execution failed
@@ -192,18 +192,18 @@ if (isset($_POST['contact_form'])) {
                                 if ($result->num_rows > 0) {
                                     // Loop through each row
                                     while ($row = $result->fetch_assoc()) {
-                                    echo'
+                                    ?>
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=' . $row["service_id"] . '">
-                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"]; ?>">
+                                                        <img src="<?php echo$row["image_path"];?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="box-title">
-                                                    <p>' . $row["service_name"] . '</p>
+                                                    <p><?php echo$row["service_name"];?></p>
                                                 </div>
                                             </div>
-                                        ';
+                                    <?php
                                     }
                                 }
                             } else {
@@ -227,18 +227,18 @@ if (isset($_POST['contact_form'])) {
                                 if ($result->num_rows > 0) {
                                     // Loop through each row
                                     while ($row = $result->fetch_assoc()) {
-                                    echo '
+                                    ?>
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=' . $row["service_id"] . '">
-                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"];?>">
+                                                        <img src="<?php echo$row["image_path"];?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="box-title">
-                                                    <p>' . $row["service_name"] . '</p>
+                                                    <p><?php echo$row["service_name"];?></p>
                                                 </div>
                                             </div>
-                                        ';
+                                    <?php
                                     }
                                 }
                             } else {
@@ -251,7 +251,7 @@ if (isset($_POST['contact_form'])) {
                  <div class="service-box" id="appliances">
                     <h2 class="ser-heading">Appliance Repair</h2>
                     <div class="box-container">
-                        <?php
+                    <?php
                             $sql = "SELECT * FROM services WHERE service_cate_id = 4";
                             $result = $conn->query($sql);
 
@@ -260,18 +260,18 @@ if (isset($_POST['contact_form'])) {
                                 if ($result->num_rows > 0) {
                                     // Loop through each row
                                     while ($row = $result->fetch_assoc()) {
-                                        echo '
+                                    ?>
                                             <div class="box shadow">
                                                 <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=' . $row["service_id"] . '">
-                                                        <img src="' . $row["image_path"] . '" alt="">
+                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"];?>">
+                                                        <img src="<?php echo$row["image_path"];?>" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="box-title">
-                                                    <p>' . $row["service_name"] . '</p>
+                                                    <p><?php echo$row["service_name"];?></p>
                                                 </div>
                                             </div>
-                                        ';
+                                    <?php
                                     }
                                 }
                             } else {

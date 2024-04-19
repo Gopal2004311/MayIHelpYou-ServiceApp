@@ -2,7 +2,7 @@
     <?php
 if (isset($_GET['sid'])) {
     $sid = $_GET['sid'];
-    $fetch_service = "SELECT * FROM `services` WHERE `service_id` = {$sid}";
+    $fetch_service = "SELECT * FROM `services` WHERE `service_id` = '$sid'";
     $result = $conn->query($fetch_service);
     if ($result->num_rows == 1) {
         $ser_row = $result->fetch_assoc();
