@@ -47,7 +47,7 @@ if (isset($_POST['service'])) {
             $path = $fileUpload->getStoragePath();
             $status = "Yes";
             if ($result) {
-                $sql = $conn->prepare("INSERT INTO `services`(`service_id`,`service_name`,`description`,`price`,`avg_duration`,`availability`,`service_created_at`,`image_path`,`service_cate_id`,`service_admin_id`)
+                $sql = $conn->prepare("INSERT INTO `services`(`service_id`,`service_name`,`description`,`price`,`avg_duration`,`availability`,`service_create_at`,`image_path`,`service_cate_id`,`service_admin_id`)
                                     VALUES(null,?,?,?,?,?,current_timestamp,?,?,?)");
                 $sql->bind_param("ssssssss", $name, $desc, $price, $duration, $status, $path, $cate_id, $admin_id);
                 $result1 = $sql->execute();

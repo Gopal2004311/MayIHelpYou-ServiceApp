@@ -91,7 +91,7 @@ if (isset($_POST['order_confirm'])) {
 
         if ($result && $result1 && $result2 && $result3) {
             echo "Order Accepted";
-            $from = "gopalsadavarte555@gmail.com";
+            $from = "gopalsadavarte333@gmail.com";
             $header = "From:$from";
             $subject = "Thanks, For Give Chance to help you!!";
             $message = "Dear," . $name . "Thanks for giving chance to serve best services to you and we have also request to you to give more information about aur site to other your relatives and make more chances to give best services to you peoples !!";
@@ -100,7 +100,6 @@ if (isset($_POST['order_confirm'])) {
             } else {
                 echo "Network Problem, mail cannot sent!!";
             }
-
             unset($_SESSION['order_name']);
             unset($_SESSION['order_city']);
             unset($_SESSION['order_phone']);

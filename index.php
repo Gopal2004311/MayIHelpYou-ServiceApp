@@ -132,31 +132,45 @@ if (isset($_POST['contact_form'])) {
             <div class="categories-section">
                 <h2 class="heading">All Categories</h2>
                 <ul>
-                    <li><a href="#plumbing" class="cat-link">Plumbing</a></li>
-                    <li><a href="#cleaning" class="cat-link">Cleaning</a></li>
-                    <li><a href="#electrical" class="cat-link">Electrical</a></li>
-                    <li><a href="#appliances" class="cat-link">Appliances Repairs</a></li>
-                    <li><a href="#carpentry" class="cat-link">Carpentry</a></li>
-                    <li><a href="#emergency" class="cat-link">Emergency</a></li>
-                    <li><a href="#painting" class="cat-link">Painting</a></li>
-                    <li><a href="#Moving" class="cat-link">Moving</a></li>
-                    <li><a href="#" class="cat-link">Landscaping & Gardening</a></li>
+                    <?php 
+                    $sql=$conn->prepare("SELECT * FROM `categories`");
+                    $sql->execute();
+                    $result=$sql->get_result();
+                    while($row=$result->fetch_assoc()):?>
+                        <li>
+                            <a href="<?php echo '#'.strtolower($row['cate_name']);?>" class="cat-link">
+                                <?php echo $row['cate_name'];?>
+                            </a>
+                        </li>
+                    <?php endwhile;?>
                 </ul>
             </div>
             <div class="service-info">
-                <!-- Plumbing Services Fetching Here -->
-                <div class="service-box" id="plumbing">
-                    <h2 class="ser-heading">Plumbing</h2>
+                <!-- Fetching All Services Dynamically From database -->
+                <?php 
+                $sql=$conn->prepare("SELECT * FROM `categories`");
+                $sql->execute();
+                $res=$sql->get_result();
+
+                while($row=$res->fetch_assoc()):
+                    $sql1=$conn->prepare("SELECT COUNT(`service_id`) FROM `services` WHERE `service_cate_id`=$row[cate_id]");
+                    $sql1->execute();
+                    $res1=$sql1->get_result();
+                    $cnt=$res1->fetch_column(0);
+                    if($cnt>0):
+                    ?>
+                <div class="service-box" id="<?php echo strtolower($row['cate_name']);?>">
+                    <h2 class="ser-heading"><?php echo $row['cate_name'];?></h2>
                     <div class="box-container">
                         <?php
-                            $sql = "SELECT * FROM services WHERE service_cate_id = 1";
+                            $sql = "SELECT * FROM services WHERE service_cate_id = $row[cate_id]";
                             $result = $conn->query($sql);
 
-                            if ($result) {
+                            if ($result):
                                 // Check if any rows were returned
-                                if ($result->num_rows > 0) {
+                                if ($result->num_rows > 0):
                                     // Loop through each row
-                                    while ($row = $result->fetch_assoc()) {
+                                    while ($row = $result->fetch_assoc()):
                                         ?>
                                            <div class="box shadow">
                                                 <div class="box-body">
@@ -169,123 +183,18 @@ if (isset($_POST['contact_form'])) {
                                                 </div>
                                             </div>
                                         <?php
-                                   }
-                                }
-                            } else {
+                                    endwhile;
+                                else:
                                 // Query execution failed
                                 echo "Error: " . $conn->error;
-                            }
+                                endif;
+                            endif;
                         ?>
                     </div>
                 </div>
-
-                <!-- Cleaning Services Fetching Here -->
-                <div class="service-box" id="cleaning">
-                    <h2 class="ser-heading">Cleaning</h2>
-                    <div class="box-container">
-                        <?php
-                            $sql = "SELECT * FROM services WHERE service_cate_id = 2";
-                            $result = $conn->query($sql);
-
-                            if ($result) {
-                                // Check if any rows were returned
-                                if ($result->num_rows > 0) {
-                                    // Loop through each row
-                                    while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <div class="box shadow">
-                                                <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"]; ?>">
-                                                        <img src="<?php echo$row["image_path"];?>" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="box-title">
-                                                    <p><?php echo$row["service_name"];?></p>
-                                                </div>
-                                            </div>
-                                    <?php
-                                    }
-                                }
-                            } else {
-                                // Query execution failed
-                                echo "Error: " . $conn->error;
-                            }
-                        ?>
-
-                    </div>
-                </div>
-                <!-- Electrical Services Fetching Here  -->
-                <div class="service-box" id="electrical">
-                    <h2 class="ser-heading">Electrical</h2>
-                    <div class="box-container">
-                        <?php
-                            $sql = "SELECT * FROM services WHERE service_cate_id = 3";
-                            $result = $conn->query($sql);
-
-                            if ($result) {
-                                // Check if any rows were returned
-                                if ($result->num_rows > 0) {
-                                    // Loop through each row
-                                    while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <div class="box shadow">
-                                                <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"];?>">
-                                                        <img src="<?php echo$row["image_path"];?>" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="box-title">
-                                                    <p><?php echo$row["service_name"];?></p>
-                                                </div>
-                                            </div>
-                                    <?php
-                                    }
-                                }
-                            } else {
-                                // Query execution failed
-                                echo "Error: " . $conn->error;
-                            }
-                        ?>
-                    </div>
-                </div>
-                 <div class="service-box" id="appliances">
-                    <h2 class="ser-heading">Appliance Repair</h2>
-                    <div class="box-container">
-                    <?php
-                            $sql = "SELECT * FROM services WHERE service_cate_id = 4";
-                            $result = $conn->query($sql);
-
-                            if ($result) {
-                                // Check if any rows were returned
-                                if ($result->num_rows > 0) {
-                                    // Loop through each row
-                                    while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                            <div class="box shadow">
-                                                <div class="box-body">
-                                                    <a href="_userDashboard.php?sid=<?php echo$row["service_id"];?>">
-                                                        <img src="<?php echo$row["image_path"];?>" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="box-title">
-                                                    <p><?php echo$row["service_name"];?></p>
-                                                </div>
-                                            </div>
-                                    <?php
-                                    }
-                                }
-                            } else {
-                                // Query execution failed
-                                echo "Error: " . $conn->error;
-                            }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?php endif;endwhile;?>
        </section>
     <!-- Service section End Here -->
-
 
     <!-- Our Best Worker Section Start Here -->
     <section class="pad-x" id="worker-section">
@@ -300,7 +209,7 @@ if (isset($_POST['contact_form'])) {
                     $sql = $conn->prepare("SELECT `emp_name`,`profile_picture` FROM `employee`");
                     $sql->execute();
                     $result = $sql->get_result();
-                        while ($row = $result->fetch_assoc()) {
+                        while ($row = $result->fetch_assoc()):
                             ?>
                                 <div class="emp-card">
                                     <div class="card-img">
@@ -311,7 +220,7 @@ if (isset($_POST['contact_form'])) {
                                     </div>
                                 </div>
                             <?php 
-                        }
+                        endwhile;
                     ?>
                 </div>
             </div>

@@ -22,10 +22,10 @@ $result=$sql->get_result();
                         <th>Emp Name</th>
                         <th>Emp Email</th>
                         <th>Address</th>
-                        <th>Status</th>
                         <th>Registered Date</th>
                         <th>Admin Name</th>
                         <th>Category Name</th>
+                        <th>Status</th>
                         <th>Operation</th>
                     </tr>
                     <?php while($row=$result->fetch_assoc()):?>
